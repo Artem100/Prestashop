@@ -31,7 +31,7 @@ public class TestsUI {
     }
 
     @Test
-    public void fullregistration(){
+    public void fullregistration() throws InterruptedException{
         main.assertMainPage();
         main.clickSignInButton();
         authentication.assertMainPage();
