@@ -8,11 +8,10 @@ import static com.codeborne.selenide.Selenide.title;
 
 public class Authentication {
 
-    public String createAccountFieldID = "email_create";
+    private String createAccountFieldID = "email_create";
     private String createAccountButtonID = "SubmitCreate";
-    public String emailField = "email";
-    public String valueNewEmail;
-
+    private String emailField = "email";
+    private String valueNewEmail;
 
 
     public boolean assertMainPage(){
@@ -22,6 +21,10 @@ public class Authentication {
     public void clickAccountField(){
         $(By.id(createAccountFieldID)).sendKeys(RandomStringUtils.randomAlphabetic(5)+"@mail.te");
         valueNewEmail = $(By.id(createAccountFieldID )).getValue();
+    }
+
+    public String valueEmail(){ // return value of created email
+        return valueNewEmail;
     }
 
     public void clickCreateAccountButton(){
@@ -34,6 +37,14 @@ public class Authentication {
 
     public void getEmailValue(){
         $(By.id(createAccountFieldID )).getValue();
+    }
+
+    public void clickCreateAccountField(){
+        $(By.id(createAccountFieldID)).click();
+    }
+
+    public void clickEmailField(){
+        $(By.id(createAccountButtonID)).click();
     }
 
 
