@@ -11,6 +11,8 @@ public class Authentication {
     private String createAccountFieldID = "email_create";
     private String createAccountButtonID = "SubmitCreate";
     private String emailField = "email";
+    private String passFieldID = "passwd";
+    private String sigInButtonID = "SubmitLogin";
     private String valueNewEmail;
 
 
@@ -45,6 +47,13 @@ public class Authentication {
 
     public void clickEmailField(){
         $(By.id(createAccountButtonID)).click();
+    }
+
+    public void login(String username, String password){
+        assertMainPage();
+        $(By.id(emailField)).sendKeys(username);
+        $(By.id(passFieldID)).sendKeys(password);
+        $(By.id(sigInButtonID)).click();
     }
 
 
